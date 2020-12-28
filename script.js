@@ -31,8 +31,14 @@ function desiredCharacters() {
   return characters;
 }
 
+// Function that returns for the desired length of the password
 function desiredLength() {
-  return prompt('How many characterss would you like to have in your password?');
+  var numberOfCharacters = prompt('How many characters would you like to have in your password?');
+  //Validation to check if the password length is between 8 and 128
+  while(numberOfCharacters < 8 || numberOfCharacters > 128){
+    numberOfCharacters = prompt('Please choose a number between 8 and 128 for your password length:');
+  }
+  return numberOfCharacters;
 }
 
 // Function that generates the password takes two parameters the length of the password and an array to be used to generate the password
