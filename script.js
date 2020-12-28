@@ -7,11 +7,14 @@ var lowercaseAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", 
 // Function that asks the user different questions to determine the characters to be used on the password
 function desiredCharacters() {
   var characters = [];
-  var wantLowercase = confirm('Would you like to have lowercase characters?');
-  if(wantLowercase) {
+  
+  if(confirm('Would you like to have lowercase characters?')) {
     characters = characters.concat(lowercaseAlphabet);
   }
 
+  if(confirm('Would you like to add uppercase characters?')) {
+    characters = characters.concat(uppercaseAlphabet)
+  }
   console.log(characters);
 }
 
