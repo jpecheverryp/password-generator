@@ -31,6 +31,10 @@ function desiredCharacters() {
   return characters;
 }
 
+function desiredLength() {
+  return prompt('How many characterss would you like to have in your password?');
+}
+
 // Function that generates the password takes two parameters the length of the password and an array to be used to generate the password
 function generatePassword(passwordLength, characters) {
   // Creates an empty string
@@ -49,7 +53,8 @@ function generatePassword(passwordLength, characters) {
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(3, desiredCharacters());
+
+  var password = generatePassword(desiredLength(), desiredCharacters());
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
