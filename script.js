@@ -9,32 +9,32 @@ var symbolsArray = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', 
 function desiredCharacters() {
   // Creates empty array to know desired characters
   var characters = [];
-  
+
   // Confirms if the user wants every kind of characters and adds them to the array
   do {
-    if(confirm('Would you like to have lowercase characters?')) {
+    if (confirm('Would you like to have lowercase characters?')) {
       characters = characters.concat(lowercaseAlphabet);
     }
-  
-    if(confirm('Would you like to add uppercase characters?')) {
+
+    if (confirm('Would you like to add uppercase characters?')) {
       characters = characters.concat(uppercaseAlphabet);
     }
-  
-    if(confirm('Would you like to add numbers?')) {
+
+    if (confirm('Would you like to add numbers?')) {
       characters = characters.concat(digitsArray);
     }
-  
-    if(confirm('Would you like to add symbols?')) {
+
+    if (confirm('Would you like to add symbols?')) {
       characters = characters.concat(symbolsArray);
     }
-    
+
     if (!characters.length) {
       alert('You need to choose at least one option:')
     }
 
   } while (!characters.length);
 
-  
+
 
   //returns the array with the desired characters
   return characters;
@@ -44,9 +44,11 @@ function desiredCharacters() {
 function desiredLength() {
   var numberOfCharacters = prompt('How many characters would you like to have in your password?');
   //Validation to check if the password length is between 8 and 128
-  while(numberOfCharacters < 8 || numberOfCharacters > 128){
+  while (numberOfCharacters < 8 || numberOfCharacters > 128 || isNaN(numberOfCharacters)) {
     numberOfCharacters = prompt('Please choose a number between 8 and 128 for your password length:');
   }
+
+
   return numberOfCharacters;
 }
 
@@ -57,7 +59,7 @@ function generatePassword(passwordLength, characters) {
   var chosenCharacter = '';
   console.log(createdPassword);
   // Iterates with the desired length and adds random characters to the string
-  for(var i = 0; i < passwordLength; i++){
+  for (var i = 0; i < passwordLength; i++) {
     // chooses a random character from the array parameter
     chosenCharacter = characters[Math.floor(Math.random() * characters.length)];
     // adds the chosen character to the password
