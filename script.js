@@ -11,21 +11,30 @@ function desiredCharacters() {
   var characters = [];
   
   // Confirms if the user wants every kind of characters and adds them to the array
-  if(confirm('Would you like to have lowercase characters?')) {
-    characters = characters.concat(lowercaseAlphabet);
-  }
+  do {
+    if(confirm('Would you like to have lowercase characters?')) {
+      characters = characters.concat(lowercaseAlphabet);
+    }
+  
+    if(confirm('Would you like to add uppercase characters?')) {
+      characters = characters.concat(uppercaseAlphabet);
+    }
+  
+    if(confirm('Would you like to add numbers?')) {
+      characters = characters.concat(digitsArray);
+    }
+  
+    if(confirm('Would you like to add symbols?')) {
+      characters = characters.concat(symbolsArray);
+    }
+    
+    if (!characters.length) {
+      alert('You need to choose at least one option:')
+    }
 
-  if(confirm('Would you like to add uppercase characters?')) {
-    characters = characters.concat(uppercaseAlphabet);
-  }
+  } while (!characters.length);
 
-  if(confirm('Would you like to add numbers?')) {
-    characters = characters.concat(digitsArray);
-  }
-
-  if(confirm('Would you like to add symbols?')) {
-    characters = characters.concat(symbolsArray);
-  }
+  
 
   //returns the array with the desired characters
   return characters;
